@@ -86,7 +86,7 @@ public class Drone {
                                    .mapToInt(Container::getWeight)
                                    .sum();
 
-        return (weight / propellers.getNumberOfPropelle() * 5) != 0;
+        return weight != 0 || (weight / propellers.getNumberOfPropelle() * 5) != 0;
     }
 
     public Point getCurrentPosition(){
