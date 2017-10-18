@@ -68,6 +68,7 @@ public class Drone {
 
         battery.use(consumptionCalculator.getConsumption(distance,Direction.HORIZONTAL,weight));
 
+        current = point;
     }
 
     public void landing(){
