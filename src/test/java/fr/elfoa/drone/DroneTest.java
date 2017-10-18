@@ -17,7 +17,7 @@ public class DroneTest {
 
         drone.tackOff();
 
-        assertEquals(50d,drone.getCurrentPosition().getAltitude().intValue());
+        assertEquals(50d,drone.getCurrentPosition().getAltitude(),0);
 
     }
 

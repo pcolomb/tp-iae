@@ -1,5 +1,6 @@
 package fr.elfoa.drone;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,6 +23,7 @@ public class Drone {
 
 
     public Drone(Point current){
+        this.containers = new ArrayList<>();
         this.current = current;
         this.battery = new Battery();
         this.propellers = new Propellers(battery);
