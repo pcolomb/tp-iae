@@ -11,7 +11,7 @@ public class Drone {
 
     private Battery battery;
 
-    private Propellers propellers;
+    public Propellers propellers;
 
     private List<Container> containers;
 
@@ -27,11 +27,16 @@ public class Drone {
         this.current = current;
         this.battery = new Battery();
         this.propellers = new Propellers(battery);
+        this.isFlying = false;
 
         if(current.getAltitude() != 0){
             throw new IllegalArgumentException();
         }
+    }
 
+    public void addContainer(Container container)
+    {
+        this.containers.add(container);
     }
 
     public void tackOff(){
@@ -89,7 +94,7 @@ public class Drone {
                                    .mapToInt(Container::getWeight)
                                    .sum();
 
-        return weight == 0 || (weight / propellers.getNumberOfPropelle() * 5) != 0;
+        return weight == 0 || (weight < propellers.getNumberOfPropelle() * 5);
     }
 
     public Point getCurrentPosition(){

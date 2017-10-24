@@ -11,25 +11,19 @@ public class Point {
 
     private Double altitude;
 
-
-
     public Point(Double latitude, Double longitude, Double altitude) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.altitude = altitude;
     }
 
-
-
     public Double getAltitude() {
         return altitude;
     }
 
-
     public Double getLongitude() {
         return longitude;
     }
-
 
     public Double getLatitude() {
         return latitude;
@@ -59,5 +53,26 @@ public class Point {
         distance = Math.pow(distance, 2) + Math.pow(height, 2);
 
         return Math.sqrt(distance);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) {
+            return false;
+        }
+        final Point point = (Point) obj;
+        if(this.latitude.equals(point.getLatitude())
+                && this.longitude.equals(point.getLongitude())
+                && this.altitude.equals(point.getAltitude())) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + this.altitude.hashCode() + this.longitude.hashCode() + this.latitude.hashCode();
+        return hash;
     }
 }

@@ -7,7 +7,6 @@ public class Module {
 
     private Integer power = 100;
 
-
     public void use(Integer power){
         this.power -= power;
     }
