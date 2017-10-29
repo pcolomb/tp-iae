@@ -1,19 +1,24 @@
 package fr.elfoa.drone;
 
 import static org.junit.Assert.assertEquals;
+
+import fr.elfoa.AbstractBootstraper;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
  * @author Pierre Colomb
  */
-public class DroneTest {
+public class DroneTest extends AbstractBootstraper {
 
     private static final Point ORIGIN = new Point(0d,0d,0d);
 
     @Test
     public void tackOff() throws Exception
     {
-        Drone drone = new Drone(ORIGIN);
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
 
         drone.tackOff();
 
@@ -22,7 +27,8 @@ public class DroneTest {
 
     @Test
     public void flyTo() throws Exception {
-        Drone drone = new Drone(ORIGIN);
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
 
         assertEquals(ORIGIN, drone.getCurrentPosition());
 
@@ -37,7 +43,8 @@ public class DroneTest {
 
     @Test
     public void landing() throws Exception {
-        Drone drone = new Drone(ORIGIN);
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
 
         drone.tackOff();
         Point destination = new Point(10d,10d,10d);
@@ -51,7 +58,8 @@ public class DroneTest {
 
     @Test
     public void isCanFly() throws Exception {
-        Drone drone = new Drone(ORIGIN);
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
 
         assertEquals(drone.isCanFly(), true);
 
@@ -72,7 +80,8 @@ public class DroneTest {
 
     @Test
     public void getCurrentPosition() throws Exception {
-        Drone drone = new Drone(ORIGIN);
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
 
         drone.tackOff();
         Point destination = new Point(10d,10d,10d);
@@ -80,5 +89,15 @@ public class DroneTest {
 
         drone.landing();
         assertEquals(new Point(10.0,10.0,00.0),drone.getCurrentPosition());
+    }
+
+    @BeforeClass
+    public static void start(){
+        init();
+    }
+
+    @AfterClass
+    public static void stop(){
+        shutdown();
     }
 }

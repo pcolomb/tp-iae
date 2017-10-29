@@ -11,6 +11,13 @@ public class Point {
 
     private Double altitude;
 
+    public Point()
+    {
+        this.latitude = 0d;
+        this.longitude = 0d;
+        this.altitude = 0d;
+    }
+
     public Point(Double latitude, Double longitude, Double altitude) {
         this.latitude = latitude;
         this.longitude = longitude;
