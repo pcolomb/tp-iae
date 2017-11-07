@@ -60,4 +60,19 @@ public class Point {
 
         return Math.sqrt(distance);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Point)) {
+            return false;
+        }
+
+        Point p = (Point)o;
+        return (this.latitude.equals(p.latitude) &&
+                this.longitude.equals(p.longitude) &&
+                this.altitude.equals(p.altitude));
+    }
 }

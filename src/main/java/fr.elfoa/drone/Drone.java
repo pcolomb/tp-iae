@@ -27,10 +27,12 @@ public class Drone {
         this.current = current;
         this.battery = new Battery();
         this.propellers = new Propellers(battery);
+        this.isFlying = false;
 
         if(current.getAltitude() != 0){
             throw new IllegalArgumentException();
         }
+
 
     }
 
