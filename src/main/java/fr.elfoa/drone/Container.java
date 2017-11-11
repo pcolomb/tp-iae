@@ -12,7 +12,6 @@ public class Container {
 
     private Set<Item> items = new HashSet<>();
 
-
     public void load (Item item){
         items.add(item);
     }

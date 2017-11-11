@@ -25,8 +25,6 @@ public class Item {
         return size;
     }
 
-
-
     public Integer getWeight() {
         return weight;
     }

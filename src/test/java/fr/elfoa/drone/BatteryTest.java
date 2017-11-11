@@ -24,7 +24,6 @@ public class BatteryTest {
         assertEquals(0,battery.getPower().intValue());
 
         battery.use(1);
-
     }
 
 

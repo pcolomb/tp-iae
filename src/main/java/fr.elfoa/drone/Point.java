@@ -36,8 +36,8 @@ public class Point {
         return latitude;
     }
 
-    public Double distanceTo(Point point){
-
+    public Double distanceTo(Point point)
+    {
         final int R = 6371; // Radius of the earth
 
         double latDistance = Math.toRadians(point.latitude - latitude);

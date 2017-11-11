@@ -15,7 +15,7 @@ public class DroneTest extends AbstractBootstraper {
     private static final Point ORIGIN = new Point(0d,0d,0d);
 
     @Test
-    public void tackOff() throws Exception
+    public void tackOffDroneMoved() throws Exception
     {
         Drone drone = getInstance(Drone.class);
         drone.setPoint(ORIGIN);
@@ -24,6 +24,8 @@ public class DroneTest extends AbstractBootstraper {
 
         assertEquals(new Point(0.0,0.0,50.0),drone.getCurrentPosition());
     }
+
+
 
     @Test
     public void flyTo() throws Exception {
@@ -90,6 +92,87 @@ public class DroneTest extends AbstractBootstraper {
         drone.landing();
         assertEquals(new Point(10.0,10.0,00.0),drone.getCurrentPosition());
     }
+
+    //=============== TESTS FOR BATTERY QUALIFIERS
+    
+    @Test
+    public void DroneBatteryDecreased_BatteryClassic()
+    {
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
+        Integer remainingPower = 400;
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+
+        drone.tackOff(); //use 50 power
+        remainingPower -= 50;
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+
+        Point destination = new Point(10d,10d,10d);
+        remainingPower -= destination.distanceTo(drone.getCurrentPosition()).intValue() + drone.getWeight();
+        drone.flyTo(destination);
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+
+        drone.landing();
+        remainingPower -= 50;
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+    }
+
+    /*
+    @Test
+    public void DroneBatteryDecreased_BatteryLithiumIon()
+    {
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
+        Integer remainingPower = 400;
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+
+        drone.tackOff(); //use 50 power
+        remainingPower -= (50*2)/3;
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+
+        Point destination = new Point(10d,10d,10d);
+        remainingPower -= ((destination.distanceTo(drone.getCurrentPosition()).intValue() + drone.getWeight())*2)/3;
+        drone.flyTo(destination);
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+
+        drone.landing();
+        remainingPower -= (50*2)/3;
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+    }
+
+    @Test
+    public void DroneBatteryDecreased_BatteryLithiumOxygen()
+    {
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
+        Integer remainingPower = 400;
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+
+        drone.tackOff(); //use 50 power
+        remainingPower -= 50/2;
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+
+        Point destination = new Point(10d,10d,10d);
+        remainingPower -= (destination.distanceTo(drone.getCurrentPosition()).intValue() + drone.getWeight())/2;
+        drone.flyTo(destination);
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+
+        drone.landing();
+        remainingPower -= 50/2;
+
+        assertEquals(remainingPower, drone.getPower(), 0);
+    }*/
 
     @BeforeClass
     public static void start(){

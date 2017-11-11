@@ -1,21 +1,17 @@
 package fr.elfoa.drone;
 
-import fr.elfoa.drone.Qualifiers.LithiumClassic;
+import fr.elfoa.drone.Qualifiers.LithiumIon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
-/**
- * @author Pierre Colomb
- */
-@LithiumClassic
-public class Battery implements IBattery
+@LithiumIon
+public class BatteryLithiumIon implements IBattery
 {
     private List<Module> modules = new ArrayList<>();
 
-    public Battery(){
+    public BatteryLithiumIon(){
         modules = Arrays.asList(new Module(),
                 new Module(),
                 new Module(),
@@ -29,7 +25,7 @@ public class Battery implements IBattery
                 .findFirst()
                 .orElseThrow(UnsupportedOperationException::new);
 
-        module.use(power);
+        module.use((power*2)/3);
     }
 
     @Override

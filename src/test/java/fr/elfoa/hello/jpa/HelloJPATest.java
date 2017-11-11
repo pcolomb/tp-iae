@@ -133,4 +133,19 @@ public class HelloJPATest {
 
     }
 
+    @Test
+    public void test6(){
+
+
+        B b = em.find(B.class,1000);
+
+        Assert.assertEquals(1000,b.getId().intValue());
+        Assert.assertEquals("B1-1000",b.getB_1());
+        Assert.assertEquals("B2-1000",b.getB_2());
+
+        Assert.assertEquals("B2-1000",b.getB_2());
+
+
+    }
+
 }
