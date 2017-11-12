@@ -94,7 +94,7 @@ public class DroneTest extends AbstractBootstraper {
     }
 
     //=============== TESTS FOR BATTERY QUALIFIERS
-    
+
     @Test
     public void DroneBatteryDecreased_BatteryClassic()
     {

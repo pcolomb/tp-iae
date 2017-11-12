@@ -9,8 +9,8 @@ import java.util.Objects;
  * @author Pierre Colomb
  */
 @Entity
-public class A {
-
+public class A
+{
     @Id
     @GeneratedValue
     private Integer id;

@@ -7,10 +7,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -24,23 +22,24 @@ public class HelloJPATest {
 
 
     @Before
-    public void initEntityManager() throws Exception {
+    public void initEntityManager() throws Exception
+    {
         em = emf.createEntityManager();
         tx = em.getTransaction();
     }
 
 
     @After
-    public void closeEntityManager() throws Exception {
+    public void closeEntityManager() throws Exception
+    {
        if (em != null) {
            em.close();
        }
     }
 
     @Test
-    public void test(){
-
-
+    public void test()
+    {
         A a = new A("A1","A1");
 
         tx.begin();
@@ -48,12 +47,11 @@ public class HelloJPATest {
         tx.commit();
 
         Assert.assertEquals(1,a.getId().intValue());
-
     }
 
     @Test
-    public void test2(){
-
+    public void test2()
+    {
         C c = new C("C1","C1");
         B b = new B("B1","B1",c);
 
@@ -63,36 +61,28 @@ public class HelloJPATest {
 
         Assert.assertEquals(2,b.getId().intValue());
         Assert.assertEquals(3,b.getC().getId().intValue());
-
     }
 
 
     @Test
-    public void test3(){
-
-
+    public void test3()
+    {
         A a = em.find(A.class,1000);
 
         Assert.assertEquals(1000,a.getId().intValue());
         Assert.assertEquals("A1-1000",a.getA_1());
         Assert.assertEquals("A2-1000",a.getA_2());
 
-
         tx.begin();
         a.setA_2("BUMP");
         tx.commit();
 
-        a = em.find(A.class,1000);
-
         Assert.assertEquals("BUMP",a.getA_2());
     }
 
-
-
     @Test
-    public void test4(){
-
-
+    public void test4()
+    {
         A a = em.find(A.class,1001);
 
         em.detach(a);
@@ -106,7 +96,6 @@ public class HelloJPATest {
         Assert.assertEquals("A1-1001",freshA.getA_1());
         Assert.assertEquals("A2-1001",freshA.getA_2());
 
-
         tx.begin();
         em.merge(a);
         tx.commit();
@@ -119,9 +108,8 @@ public class HelloJPATest {
 
 
     @Test
-    public void test5(){
-
-
+    public void test5()
+    {
         B b = em.find(B.class,1000);
 
         Assert.assertEquals(1000,b.getId().intValue());
@@ -129,14 +117,11 @@ public class HelloJPATest {
         Assert.assertEquals("B2-1000",b.getB_2());
 
         Assert.assertEquals("B2-1000",b.getB_2());
-
-
     }
 
     @Test
-    public void test6(){
-
-
+    public void test6()
+    {
         B b = em.find(B.class,1000);
 
         Assert.assertEquals(1000,b.getId().intValue());
@@ -144,8 +129,34 @@ public class HelloJPATest {
         Assert.assertEquals("B2-1000",b.getB_2());
 
         Assert.assertEquals("B2-1000",b.getB_2());
-
-
     }
 
+    // ============ TESTS PERSO
+
+    @Test
+    public void test7()
+    {
+        Integer n = -1;
+
+        n = displayDataFromA();
+
+        Assert.assertEquals(2,n,0);
+
+        //test();
+
+        //n = displayDataFromA();
+
+    //    Assert.assertEquals(3,n,0);
+    }
+
+    private Integer displayDataFromA()
+    {
+        Query q = em.createQuery("select a from A a");
+        List<A> results = q.getResultList();
+        for (A elt : results) {
+            System.out.println(elt.getId() +" "+elt.getA_1()+" "+elt.getA_2());
+        }
+        System.out.println("Size: " + results.size());
+        return results.size();
+    }
 }
