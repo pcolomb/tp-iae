@@ -19,7 +19,7 @@ public class Drone {
 
     private Point current;
 
-    private Boolean isFlying;
+    private Boolean isFlying = false;
 
 
     public Drone(Point current){
@@ -89,10 +89,14 @@ public class Drone {
                                    .mapToInt(Container::getWeight)
                                    .sum();
 
-        return weight == 0 || (weight / propellers.getNumberOfPropelle() * 5) != 0;
+        return weight == 0 || (weight < propellers.getNumberOfPropelle() * 5);
     }
 
     public Point getCurrentPosition(){
         return current;
+    }
+
+    public void addContainers(Container container) {
+        this.containers.add(container);
     }
 }
