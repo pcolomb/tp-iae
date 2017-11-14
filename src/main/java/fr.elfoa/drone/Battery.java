@@ -1,5 +1,6 @@
 package fr.elfoa.drone;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +13,7 @@ public class Battery {
 
     private List<Module> modules = new ArrayList<>();
 
-
+    @Inject
     public Battery(){
         modules = Arrays.asList(new Module(),
                                 new Module(),
@@ -25,8 +26,11 @@ public class Battery {
                                .filter(m -> m.getPower() != 0)
                                .findFirst()
                                .orElseThrow(UnsupportedOperationException::new);
-
-        module.use(power);
+        try {
+            module.use(power);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

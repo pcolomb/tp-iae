@@ -1,5 +1,10 @@
 package fr.elfoa.drone;
 
+import com.sun.management.VMOption;
+import fr.elfoa.hello.jpa.C;
+import org.omg.PortableInterceptor.ObjectReferenceFactory;
+
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,31 +21,30 @@ public class Drone {
     @Inject
     private Propellers propellers;
 
-    @Inject
-    private List<Container> containers;
+    private List<Container> containers = new ArrayList<Container>();
 
     @Inject
-    private ConsumptionCalculator consumptionCalculator = new ConsumptionCalculator();
+    private ConsumptionCalculator consumptionCalculator; // = new ConsumptionCalculator();
 
-    @Inject
     private Point current;
 
     private Boolean isFlying;
 
-
-    public Drone(Point current){
-        this.containers = new ArrayList<>();
-        this.current = current;
-        this.battery = new Battery();
-        this.propellers = new Propellers(battery);
+    @Inject
+    public Drone() {
+        this.current = new Point(0.0,0.0,0.0);
         this.isFlying = false;
-
-        if(current.getAltitude() != 0){
-            throw new IllegalArgumentException();
-        }
-
-
     }
+
+    public Drone(Point pt) {
+        this.current = pt;
+        this.isFlying = this.current.getAltitude() > 0;
+    }
+
+//    @PostConstruct
+//    public void Init() {
+//        this.propellers.setBattery(this.battery);
+//    }
 
     public void tackOff(){
 
