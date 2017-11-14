@@ -25,8 +25,6 @@ public class DroneTest extends AbstractBootstraper {
         assertEquals(new Point(0.0,0.0,50.0),drone.getCurrentPosition());
     }
 
-
-
     @Test
     public void flyTo() throws Exception {
         Drone drone = getInstance(Drone.class);
@@ -41,8 +39,6 @@ public class DroneTest extends AbstractBootstraper {
         assertEquals(destination, drone.getCurrentPosition());
     }
 
-
-
     @Test
     public void landing() throws Exception {
         Drone drone = getInstance(Drone.class);
@@ -55,8 +51,6 @@ public class DroneTest extends AbstractBootstraper {
         drone.landing();
         assertEquals(new Point(10.0,10.0,00.0),drone.getCurrentPosition());
     }
-
-
 
     @Test
     public void isCanFly() throws Exception {
@@ -78,8 +72,6 @@ public class DroneTest extends AbstractBootstraper {
         assertEquals(drone.isCanFly(), false);
     }
 
-
-
     @Test
     public void getCurrentPosition() throws Exception {
         Drone drone = getInstance(Drone.class);
@@ -93,7 +85,7 @@ public class DroneTest extends AbstractBootstraper {
         assertEquals(new Point(10.0,10.0,00.0),drone.getCurrentPosition());
     }
 
-    //=============== TESTS FOR BATTERY QUALIFIERS
+    //=============== TESTS FOR BATTERY QUALIFIERS ===============//
 
     @Test
     public void DroneBatteryDecreased_BatteryClassic()
@@ -121,8 +113,6 @@ public class DroneTest extends AbstractBootstraper {
         assertEquals(remainingPower, drone.getPower(), 0);
     }
 
-    /*
-    @Test
     public void DroneBatteryDecreased_BatteryLithiumIon()
     {
         Drone drone = getInstance(Drone.class);
@@ -148,7 +138,6 @@ public class DroneTest extends AbstractBootstraper {
         assertEquals(remainingPower, drone.getPower(), 0);
     }
 
-    @Test
     public void DroneBatteryDecreased_BatteryLithiumOxygen()
     {
         Drone drone = getInstance(Drone.class);
@@ -172,7 +161,70 @@ public class DroneTest extends AbstractBootstraper {
         remainingPower -= 50/2;
 
         assertEquals(remainingPower, drone.getPower(), 0);
-    }*/
+    }
+
+    //=============== TESTS FOR PROPELLERS QUALIFIERS ===============//
+
+    @Test
+    public void isCanFly_PropellersFour()
+    {
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
+
+        assertEquals(drone.isCanFly(), true);
+
+        Container container1 = new Container();
+        container1.load(new Item(10,10));
+        drone.addContainer(container1);
+
+        assertEquals(drone.isCanFly(), true);
+
+        Container container2 = new Container();
+        container2.load(new Item(10,10));
+        drone.addContainer(container2);
+
+        assertEquals(drone.isCanFly(), false);
+    }
+
+    public void isCanFly_PropellersSix()
+    {
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
+
+        assertEquals(drone.isCanFly(), true);
+
+        Container container1 = new Container();
+        container1.load(new Item(10,20));
+        drone.addContainer(container1);
+
+        assertEquals(drone.isCanFly(), true);
+
+        Container container2 = new Container();
+        container2.load(new Item(100,10));
+        drone.addContainer(container2);
+
+        assertEquals(drone.isCanFly(), false);
+    }
+
+    public void isCanFly_PropellersEight()
+    {
+        Drone drone = getInstance(Drone.class);
+        drone.setPoint(ORIGIN);
+
+        assertEquals(drone.isCanFly(), true);
+
+        Container container1 = new Container();
+        container1.load(new Item(10,30));
+        drone.addContainer(container1);
+
+        assertEquals(drone.isCanFly(), true);
+
+        Container container2 = new Container();
+        container2.load(new Item(100,10));
+        drone.addContainer(container2);
+
+        assertEquals(drone.isCanFly(), false);
+    }
 
     @BeforeClass
     public static void start(){

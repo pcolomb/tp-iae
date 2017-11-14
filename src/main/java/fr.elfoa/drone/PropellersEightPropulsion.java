@@ -1,17 +1,14 @@
 package fr.elfoa.drone;
 
 import fr.elfoa.drone.Qualifiers.LithiumClassic;
-import fr.elfoa.drone.Qualifiers.PropellersFour;
+import fr.elfoa.drone.Qualifiers.PropellersEight;
 
 import javax.inject.Inject;
 
-/**
- * @author Pierre Colomb
- */
-@PropellersFour
-public class Propellers implements IPropellers{
+@PropellersEight
+public class PropellersEightPropulsion implements IPropellers {
 
-    private Integer number = 4;
+    private Integer number = 8;
 
     @Inject
     @LithiumClassic

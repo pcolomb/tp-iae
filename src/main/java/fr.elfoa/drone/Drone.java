@@ -1,8 +1,6 @@
 package fr.elfoa.drone;
 
-import fr.elfoa.drone.Qualifiers.LithiumClassic;
-import fr.elfoa.drone.Qualifiers.LithiumIon;
-import fr.elfoa.drone.Qualifiers.LithiumOxygen;
+import fr.elfoa.drone.Qualifiers.*;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -19,7 +17,8 @@ public class Drone {
     private IBattery battery;
 
     @Inject
-    public Propellers propellers;
+    @PropellersFour
+    public IPropellers propellers;
 
     private List<Container> containers;
 
