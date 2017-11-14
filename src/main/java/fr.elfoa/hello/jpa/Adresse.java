@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * @author CAMPREDON & CHOMONT
+ */
+
 @Entity
 public class Adresse {
 

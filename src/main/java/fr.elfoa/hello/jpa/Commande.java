@@ -4,6 +4,10 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author CAMPREDON & CHOMONT
+ */
+
 @Entity
 public class Commande {
 

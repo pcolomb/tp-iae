@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+/**
+ * @author CAMPREDON & CHOMONT
+ */
+
 @Entity
 public class Client {
 
