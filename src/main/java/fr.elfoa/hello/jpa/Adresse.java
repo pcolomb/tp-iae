@@ -20,8 +20,11 @@ public class Adresse {
 
     private String voie;
 
-    @Column(name = "VOIETYPE")
     private String voieType;
+
+    //CONSTRUCTOR
+    public Adresse() {
+    }
 
     public Adresse(String cp, int num, String pays, String voie, String voieType) {
         this.cp = cp;
@@ -30,9 +33,6 @@ public class Adresse {
         this.voie = voie;
         this.voieType = voieType;
     }
-
-    //CONSTRUCTOR
-
 
     //GETTERS SETTERS
     public Integer getId() {

@@ -133,4 +133,32 @@ public class HelloJPATest {
 
     }
 
+    @Test
+    public void testContains()
+    {
+        A a = new A("A1","A1");
+        A b = new A("A1","A1");
+        tx.begin();
+        em.persist(a);
+        tx.commit();
+
+        Assert.assertEquals(true,em.contains(a));
+        Assert.assertEquals(false,em.contains(b));
+    }
+
+    @Test
+    public void testRemove()
+    {
+        A a = new A("A1","A1");
+
+        tx.begin();
+        em.persist(a);
+        tx.commit();
+
+        Assert.assertEquals(true,em.contains(a));
+        tx.begin();
+        em.remove(a);
+        tx.commit();
+        Assert.assertEquals(false,em.contains(a));
+    }
 }
