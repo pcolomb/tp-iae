@@ -1,5 +1,6 @@
 package fr.elfoa.drone;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,18 +10,26 @@ import java.util.List;
  */
 public class Drone {
 
-    private Battery battery;
+    @Inject
+    private IBattery battery;
 
+    @Inject
     private Propellers propellers;
 
+    @Inject
     private List<Container> containers;
 
     private ConsumptionCalculator consumptionCalculator = new ConsumptionCalculator();
 
+    @Inject
     private Point current;
 
     private Boolean isFlying = false;
 
+    @Inject
+    public Drone() {
+        this.containers = new ArrayList<>();
+    }
 
     public Drone(Point current){
         this.containers = new ArrayList<>();

@@ -81,7 +81,8 @@ public class DroneTest {
     }
 
     @Test
-    public void addContainer() throws Exception {
-
+    public void testCDI() throws Exception {
+        Drone drone = new Drone();
+        assertEquals(Boolean.TRUE,drone.isCanFly());
     }
 }
