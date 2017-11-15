@@ -1,9 +1,7 @@
 package fr.elfoa.hello.jpa;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author CAMPREDON & CHOMONT
@@ -18,12 +16,13 @@ public class Client {
     private String mail;
     private String nom;
     private String telephone;
-    @OneToOne
-    private Adresse adresse;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID")
+    private List<Adresse> adresse;
 
     public Client(){}
 
-    public Client(String mail, String nom, String telephone, Adresse adresse) {
+    public Client(String mail, String nom, String telephone, List<Adresse> adresse) {
         this.mail = mail;
         this.nom = nom;
         this.telephone = telephone;
@@ -62,11 +61,11 @@ public class Client {
         this.telephone = telephone;
     }
 
-    public Adresse getAdresse() {
+    public List<Adresse> getAdresse() {
         return adresse;
     }
 
-    public void setAdresse(Adresse adresse) {
+    public void setAdresse(List<Adresse> adresse) {
         this.adresse = adresse;
     }
 }

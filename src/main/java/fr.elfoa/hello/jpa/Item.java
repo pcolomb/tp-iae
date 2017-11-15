@@ -13,7 +13,7 @@ public class Item {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
     private String label;
     private int size;
     private int weight;
@@ -27,11 +27,11 @@ public class Item {
     public Item() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

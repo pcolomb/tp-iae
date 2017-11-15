@@ -13,29 +13,31 @@ public class Commande {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
     private java.util.Date date;
     @OneToOne
     private Client client;
     @OneToOne
     private Adresse adresse;
-    @OneToMany
+    @JoinColumn(name = "ID")
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Item> items;
 
     public Commande() {
     }
 
-    public Commande(Date date, Client client, Adresse adresse) {
+    public Commande(Date date, Client client, Adresse adresse, List<Item> items) {
         this.date = date;
         this.client = client;
         this.adresse = adresse;
+        this.items = items;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
