@@ -22,6 +22,14 @@ public class Client {
 
     public Client(){}
 
+    public Client(Integer id, String mail, String nom, String telephone, List<Adresse> adresse) {
+        this.id = id;
+        this.mail = mail;
+        this.nom = nom;
+        this.telephone = telephone;
+        this.adresse = adresse;
+    }
+
     public Client(String mail, String nom, String telephone, List<Adresse> adresse) {
         this.mail = mail;
         this.nom = nom;
