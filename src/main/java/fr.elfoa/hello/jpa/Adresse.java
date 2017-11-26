@@ -3,6 +3,7 @@ package fr.elfoa.hello.jpa;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Adresse
@@ -92,5 +93,34 @@ public class Adresse
         sb.append("Voie : ").append(getVoie()).append("\n");
         sb.append("Type voie : ").append(getTypeVoie()).append("\n");
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+            return true;
+        if (!(o instanceof Adresse))
+            return false;
+
+        Adresse adresse = (Adresse) o;
+
+        return Objects.equals(id, adresse.getId())
+                && Objects.equals(codePostal, adresse.getCodePostal())
+                && Objects.equals(numeroVoie, adresse.getNumeroVoie())
+                && Objects.equals(pays, adresse.getPays())
+                && Objects.equals(voie, adresse.getVoie())
+                && Objects.equals(typeVoie, adresse.getTypeVoie());
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id)
+                + Objects.hash(codePostal)
+                + Objects.hash(numeroVoie)
+                + Objects.hash(pays)
+                + Objects.hash(voie)
+                + Objects.hash(typeVoie);
     }
 }

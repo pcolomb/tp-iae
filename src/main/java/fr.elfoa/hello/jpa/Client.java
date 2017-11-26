@@ -3,6 +3,7 @@ package fr.elfoa.hello.jpa;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Client
@@ -27,6 +28,16 @@ public class Client
 
     public Client()
     {
+        adresses = new ArrayList<Adresse>();
+    }
+
+    public Client(Integer id, String nom, String prenom, String mail, String telephone)
+    {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.telephone = telephone;
         adresses = new ArrayList<Adresse>();
     }
 
@@ -109,4 +120,34 @@ public class Client
         }
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+            return true;
+        if (!(o instanceof Client))
+            return false;
+
+        Client client = (Client) o;
+
+        return Objects.equals(id, client.getId())
+                && Objects.equals(nom, client.getNom())
+                && Objects.equals(prenom, client.getPrenom())
+                && Objects.equals(mail, client.getMail())
+                && Objects.equals(telephone, client.getTelephone())
+                && Objects.equals(adresses, client.getAdresses());
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id)
+                + Objects.hash(nom)
+                + Objects.hash(prenom)
+                + Objects.hash(mail)
+                + Objects.hash(telephone)
+                + Objects.hash(adresses);
+    }
+
 }
