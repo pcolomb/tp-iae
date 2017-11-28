@@ -50,12 +50,19 @@ public class ClientWS {
                 .build();
     }
 
-
-
     @Path("{id}")
     @DELETE
     public Response delete(@PathParam("id") Integer id) {
-        clients.remove(id);
+        clients.removeIf(c -> c.getId() == id);
+        return Response.noContent()
+                .build();
+    }
+
+    @Path("{id}")
+    @PUT
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response check(@PathParam("id") Integer id, @FormParam("nom") String nom) {
+        clients.stream().filter(client -> client.getId() == id).findFirst().get().setNom(nom);
         return Response.noContent()
                 .build();
     }
