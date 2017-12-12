@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * @author Pierre Colomb
  */
-public class Battery {
-
+@A_Battery
+public class Battery implements IBattery {
 
     private List<Module> modules = new ArrayList<>();
 
@@ -22,7 +22,8 @@ public class Battery {
                                 new Module());
     }
 
-    void use(Integer power){
+    @Override
+    public void use(Integer power){
         Module module = modules.stream()
                                .filter(m -> m.getPower() != 0)
                                .findFirst()
@@ -32,7 +33,8 @@ public class Battery {
 
     }
 
-    Integer getPower(){
+    @Override
+    public Integer getPower(){
         return modules.stream()
                       .mapToInt(Module::getPower)
                       .sum();

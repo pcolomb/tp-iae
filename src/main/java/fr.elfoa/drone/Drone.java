@@ -11,7 +11,8 @@ import java.util.List;
 public class Drone {
 
     @Inject
-    private Battery battery;
+    @A_Battery
+    private IBattery battery;
 
     @Inject
     private Propellers propellers;
@@ -19,7 +20,8 @@ public class Drone {
 
     private List<Container> containers;
 
-    private ConsumptionCalculator consumptionCalculator = new ConsumptionCalculator();
+    @Inject
+    private ConsumptionCalculator consumptionCalculator;
 
     @Inject
     private Point current;
@@ -30,20 +32,32 @@ public class Drone {
     @Inject
     public Drone(){
         containers = new ArrayList<>();
+        this.isFlying = false;
     }
 
     public Drone(Point current){
         this.current = current;
-        containers = new ArrayList<>();
-        isFlying = false;
-        battery = new Battery();
-        propellers = new Propellers(battery);
+        this.containers = new ArrayList<>();
+        this.isFlying = false;
+        this.battery = new Battery();
+        this.propellers = new Propellers(battery);
 
         if(current.getAltitude() != 0){
             throw new IllegalArgumentException();
         }
-
     }
+
+  /*  public Drone(Point current, IBattery battery){
+        this.current = current;
+        this.containers = new ArrayList<>();
+        this.isFlying = false;
+        this.battery = battery;
+        this.propellers = new Propellers(battery);
+
+        if(current.getAltitude() != 0){
+            throw new IllegalArgumentException();
+        }
+    }*/
 
     public void tackOff(){
 

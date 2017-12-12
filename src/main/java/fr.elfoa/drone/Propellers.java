@@ -10,7 +10,8 @@ public class Propellers {
     private Integer number = 4;
 
     @Inject
-    private Battery battery;
+    @A_Battery
+    private IBattery battery;
 
     @Inject
     private ConsumptionCalculator calculator;
@@ -22,7 +23,7 @@ public class Propellers {
 
     }
 
-    public Propellers(Battery battery){
+    public Propellers(@A_Battery IBattery battery){
         this.battery = battery;
     }
 
