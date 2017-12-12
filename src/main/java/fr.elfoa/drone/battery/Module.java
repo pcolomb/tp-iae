@@ -1,6 +1,4 @@
-package fr.elfoa.drone;
-
-import javax.inject.Inject;
+package fr.elfoa.drone.battery;
 
 /**
  * @author Pierre Colomb

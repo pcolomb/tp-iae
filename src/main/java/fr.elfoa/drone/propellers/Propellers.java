@@ -1,22 +1,27 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.propellers;
+
+import fr.elfoa.drone.ConsumptionCalculator;
+import fr.elfoa.drone.battery.A_Battery;
+import fr.elfoa.drone.battery.IBattery;
 
 import javax.inject.Inject;
 
 /**
  * @author Pierre Colomb
  */
-public class Propellers {
+@A_Prop
+public class Propellers implements IPropellers {
 
-    private Integer number = 4;
+    protected Integer number = 4;
 
     @Inject
     @A_Battery
-    private IBattery battery;
+    protected IBattery battery;
 
     @Inject
-    private ConsumptionCalculator calculator;
+    protected ConsumptionCalculator calculator;
 
-    private Boolean isRunning = false;
+    protected Boolean isRunning = false;
 
     @Inject
     public Propellers(){
@@ -27,22 +32,23 @@ public class Propellers {
         this.battery = battery;
     }
 
+    @Override
     public void start(){
         battery.use(calculator.getConsumption(number));
         isRunning = true;
     }
 
+    @Override
     public void stop(){
         isRunning = false;
     }
 
-
+    @Override
     public Integer getNumberOfPropelle() {
         return number;
     }
 
-
-
+    @Override
     public Boolean getRunning() {
         return isRunning;
     }

@@ -1,4 +1,4 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.battery;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;

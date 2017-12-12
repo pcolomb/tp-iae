@@ -1,4 +1,4 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.battery;
 
 import javax.inject.Inject;
 import java.util.ArrayList;

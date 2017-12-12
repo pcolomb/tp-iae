@@ -1,4 +1,4 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.battery;
 
 public enum BatteryType {
     ION,

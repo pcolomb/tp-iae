@@ -1,21 +1,21 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.battery;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@A_Battery_oxygen
-public class Battery_oxygen implements IBattery {
+@A_Battery_ion
+public class Battery_ion implements IBattery {
 
     private List<Module> modules = new ArrayList<>();
 
     @Inject
-    public Battery_oxygen(){
-        modules = Arrays.asList(new Module(BatteryType.OXYGEN),
-                new Module(BatteryType.OXYGEN),
-                new Module(BatteryType.OXYGEN),
-                new Module(BatteryType.OXYGEN));
+    public Battery_ion(){
+        modules = Arrays.asList(new Module(BatteryType.ION),
+                new Module(BatteryType.ION),
+                new Module(BatteryType.ION),
+                new Module(BatteryType.ION));
     }
 
     @Override

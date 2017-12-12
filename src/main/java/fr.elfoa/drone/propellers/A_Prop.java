@@ -1,4 +1,4 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.propellers;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;
@@ -10,6 +10,5 @@ import static java.lang.annotation.ElementType.*;
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 @Target({TYPE, METHOD, FIELD, PARAMETER})
-public @interface A_Battery_ion {
-
+public @interface A_Prop {
 }

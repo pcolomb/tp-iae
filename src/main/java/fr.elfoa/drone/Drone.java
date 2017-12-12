@@ -1,5 +1,12 @@
 package fr.elfoa.drone;
 
+import fr.elfoa.drone.battery.A_Battery;
+import fr.elfoa.drone.battery.Battery;
+import fr.elfoa.drone.battery.IBattery;
+import fr.elfoa.drone.propellers.A_Prop;
+import fr.elfoa.drone.propellers.IPropellers;
+import fr.elfoa.drone.propellers.Propellers;
+
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +22,8 @@ public class Drone {
     private IBattery battery;
 
     @Inject
-    private Propellers propellers;
-
+    @A_Prop
+    private IPropellers propellers;
 
     private List<Container> containers;
 
