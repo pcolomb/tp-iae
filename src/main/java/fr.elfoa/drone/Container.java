@@ -1,5 +1,6 @@
 package fr.elfoa.drone;
 
+import javax.inject.Inject;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,10 @@ public class Container {
 
     private Set<Item> items = new HashSet<>();
 
+    @Inject
+    public Container(){
+
+    }
 
     public void load (Item item){
         items.add(item);
