@@ -44,7 +44,6 @@ public class DroneTest extends AbstractBootstraper {
 
     @Test
     public void flyTo() throws Exception {
-        //Drone drone = new Drone(ORIGIN);
         Drone drone = getInstance(Drone.class);
 
         try {
@@ -67,7 +66,6 @@ public class DroneTest extends AbstractBootstraper {
 
     @Test
     public void landing() throws Exception {
-        //Drone drone = new Drone(ORIGIN);
         Drone drone = getInstance(Drone.class);
         Point dest = new Point(42.0, 42.0, 50.0);
         Point expected = new Point(42.0, 42.0, 0.0);

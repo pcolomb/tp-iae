@@ -26,6 +26,7 @@ public class Drone {
     @Inject
     private ConsumptionCalculator consumptionCalculator; // = new ConsumptionCalculator();
 
+    @Inject
     private Point current;
 
     private Boolean isFlying;

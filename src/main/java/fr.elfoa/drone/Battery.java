@@ -14,7 +14,7 @@ public class Battery {
     private List<Module> modules = new ArrayList<>();
 
     @Inject
-    public Battery(){
+    public Battery() {
         modules = Arrays.asList(new Module(),
                                 new Module(),
                                 new Module(),
