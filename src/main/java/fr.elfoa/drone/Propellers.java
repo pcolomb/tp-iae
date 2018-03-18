@@ -5,7 +5,7 @@ import javax.inject.Inject;
 /**
  * @author Pierre Colomb
  */
-public class Propellers {
+public class Propellers implements IPropellers {
 
     private Integer number = 4;
 
@@ -20,17 +20,19 @@ public class Propellers {
     @Inject
     public Propellers() {}
 
+    @Override
     public void start(){
         battery.use(calculator.getConsumption(number));
         isRunning = true;
     }
 
+    @Override
     public void stop(){
         isRunning = false;
     }
 
 
-    public Integer getNumberOfPropelle() {
+    public Integer getNumberOfPropeller() {
         return number;
     }
 

@@ -1,10 +1,5 @@
 package fr.elfoa.drone;
 
-import com.sun.management.VMOption;
-import fr.elfoa.hello.jpa.C;
-import org.omg.PortableInterceptor.ObjectReferenceFactory;
-
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
@@ -102,7 +97,7 @@ public class Drone {
                                    .mapToInt(Container::getWeight)
                                    .sum();
 
-        return weight == 0 || (weight / propellers.getNumberOfPropelle() * 5) != 0;
+        return weight == 0 || (weight / propellers.getNumberOfPropeller() * 5) != 0;
     }
 
     public Point getCurrentPosition(){
