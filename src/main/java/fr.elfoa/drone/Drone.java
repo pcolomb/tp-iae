@@ -1,5 +1,9 @@
 package fr.elfoa.drone;
 
+import fr.elfoa.qualifiers.Battery_Lithium_Ion;
+import fr.elfoa.qualifiers.Battery_Standard;
+import fr.elfoa.qualifiers.Propellers_Standard;
+
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +15,11 @@ import java.util.List;
 public class Drone {
 
     @Inject
-    private Battery battery;
+    @Battery_Standard
+    private Battery battery; //Injection d'une batterie standard, on peut aussi injecter une batterie lithium-truc
 
     @Inject
+    @Propellers_Standard
     private Propellers propellers;
 
     private List<Container> containers = new ArrayList<Container>();
@@ -102,5 +108,13 @@ public class Drone {
 
     public Point getCurrentPosition(){
         return current;
+    }
+
+    public Battery getBattery() {
+        return battery;
+    }
+
+    public Propellers getPropellers() {
+        return propellers;
     }
 }

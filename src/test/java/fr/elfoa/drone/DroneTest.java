@@ -1,9 +1,6 @@
 package fr.elfoa.drone;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
+import fr.elfoa.qualifiers.Propellers_8_helices;
 import org.junit.Test;
 
 import fr.elfoa.AbstractBootstraper;
@@ -11,6 +8,8 @@ import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import javax.inject.Inject;
 import javax.swing.*;
+
+import static org.junit.Assert.*;
 
 /**
  * @author Pierre Colomb
@@ -31,6 +30,26 @@ public class DroneTest extends AbstractBootstraper {
 
     @Inject
     private Drone drone;
+
+    @Test
+    public void checkBattery() {
+        //Le qualifier utilisé est Battery_Standard, en principe
+        Drone drone = getInstance(Drone.class);
+
+        assertEquals(Battery.class, drone.getBattery().getClass());
+        assertNotEquals(Battery_LithiumOxygen.class, drone.getBattery().getClass());
+        assertNotEquals(Battery_LithiumIon.class, drone.getBattery().getClass());
+    }
+
+    @Test
+    public void checkPropellers() {
+        //Le qualifier utilisé est Propellers_Standard, en principe
+        Drone drone = getInstance(Drone.class);
+
+        assertEquals(Propellers.class, drone.getPropellers().getClass());
+        assertNotEquals(Propellers_8helices.class, drone.getPropellers().getClass());
+        assertNotEquals(Propellers_6helices.class, drone.getPropellers().getClass());
+    }
 
     @Test
     public void tackOff() throws Exception {

@@ -1,7 +1,9 @@
 package fr.elfoa.drone;
 
 import fr.elfoa.AbstractBootstraper;
+import fr.elfoa.qualifiers.Battery_Standard;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,24 +15,16 @@ import static org.junit.Assert.assertEquals;
  * @author Pierre Colomb
  */
 public class BatteryTest extends AbstractBootstraper {
-    @BeforeClass
-    public static void start() {
-        init();
-    }
-
-    @AfterClass
-    public static void stop() {
-        shutdown();
-    }
-
     @Inject
-    Battery battery;
+    private Battery battery;
+
+    @Before
+    public void setUp() {
+        battery = new Battery();
+    }
 
     @Test(expected = UnsupportedOperationException.class)
     public void use() throws Exception {
-        //Battery battery = new Battery();
-        battery = getInstance(Battery.class);
-
         for(int i = 0 ; i < 7  ; i++) {
             battery.use(50);
         }
@@ -49,8 +43,6 @@ public class BatteryTest extends AbstractBootstraper {
 
     @Test
     public void getPower() throws Exception {
-        Battery battery = new Battery();
-
         assertEquals(400,battery.getPower().intValue());
     }
 

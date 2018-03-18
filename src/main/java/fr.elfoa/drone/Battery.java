@@ -1,5 +1,7 @@
 package fr.elfoa.drone;
 
+import fr.elfoa.qualifiers.Battery_Standard;
+
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,9 +11,10 @@ import java.util.List;
 /**
  * @author Pierre Colomb
  */
+@Battery_Standard
 public class Battery implements IBattery {
 
-    private List<Module> modules = new ArrayList<>();
+    protected List<Module> modules = new ArrayList<>();
 
     @Inject
     public Battery() {

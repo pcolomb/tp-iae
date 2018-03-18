@@ -1,15 +1,20 @@
 package fr.elfoa.drone;
 
+import fr.elfoa.qualifiers.Battery_Standard;
+import fr.elfoa.qualifiers.Propellers_Standard;
+
 import javax.inject.Inject;
 
 /**
  * @author Pierre Colomb
  */
+@Propellers_Standard
 public class Propellers implements IPropellers {
 
     private Integer number = 4;
 
     @Inject
+    @Battery_Standard
     private Battery battery;
 
     @Inject
