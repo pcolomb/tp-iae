@@ -1,4 +1,4 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.impl;
 
 /**
  * @author Pierre Colomb
@@ -11,7 +11,7 @@ public class ConsumptionCalculator {
     }
 
 
-    Integer getConsumption(Double distance,Direction direction,Integer weight){
+    Integer getConsumption(Double distance, Direction direction, Integer weight){
         return 0;
     }
 

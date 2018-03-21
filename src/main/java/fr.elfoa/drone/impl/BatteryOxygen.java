@@ -1,18 +1,28 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.impl;
 
-import javax.inject.Inject;
+import fr.elfoa.drone.annotations.QualifierBatteryOxygen;
+import fr.elfoa.drone.interfaces.IBattery;
+
+import javax.enterprise.inject.Model;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BatteryIon implements IBattery {
+// author : CAMPREDON & CHOMONT
 
-    @Inject
+//Batterie utilisant module Lithium-oxygen deux fois + performante que standard
+
+@QualifierBatteryOxygen
+public class BatteryOxygen implements IBattery {
+
+
     List<Module> modules = new ArrayList<>();
 
-    @Inject
-    public BatteryIon(){
+    public BatteryOxygen(){
         modules = Arrays.asList(new Module(),
+                new Module(),
+                new Module(),
                 new Module(),
                 new Module(),
                 new Module(),

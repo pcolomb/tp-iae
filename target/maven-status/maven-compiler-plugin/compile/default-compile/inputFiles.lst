@@ -1,15 +1,37 @@
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\hello\jpa\C.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\hello\jpa\A.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\hello\You.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\drone\Battery.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\drone\ConsumptionCalculator.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\drone\Point.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\hello\World.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\drone\Direction.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\drone\Item.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\drone\Module.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\drone\Container.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\drone\Propellers.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\drone\Drone.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\hello\jpa\B.java
-D:\Profiles\mchomont\Documents\Cours ISIMA\Intégration d'application\TP1\tp-iae\src\main\java\fr.elfoa\hello\Polite.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\annotations\QualifierPropellers6.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\jpa\Client.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\Polite.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\interfaces\IBattery.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\annotations\QualifierBatteryIon.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\rest\todo\Todo.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Propellers8.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\You.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Propellers6.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\jpa\Commande.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\annotations\QualifierPropellers8.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\ConsumptionCalculator.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\annotations\QualifierBatteryOxygen.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\annotations\QualifierPropellers4.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\BatteryIon.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\jpa\B.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Drone.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Module.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Point.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\BatteryOxygen.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Container.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\rest\todo\Todos.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Item.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\jpa\C.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\jpa\ClientWS.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\interfaces\IPropellers.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Direction.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\rest\HelloWorld.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\jpa\Adresse.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\rest\todo\TodoList.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Battery.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\World.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\impl\Propellers.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\drone\annotations\QualifierBatteryClassic.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\jpa\A.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\jpa\Item.java
+C:\Users\campredonf\IdeaProjects\tp-iaeMax\src\main\java\fr.elfoa\hello\rest\todo\TodoListWS.java

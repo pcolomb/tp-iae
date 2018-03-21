@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author CAMPREDON & CHOMONT
  */
-
+//entité gérant la commande
 @Entity
 public class Commande {
 

@@ -1,4 +1,8 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.impl;
+
+import fr.elfoa.drone.annotations.QualifierBatteryClassic;
+import fr.elfoa.drone.annotations.QualifierPropellers4;
+import fr.elfoa.drone.interfaces.IBattery;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -11,9 +15,11 @@ import java.util.List;
 public class Drone {
 
     @Inject
+    @QualifierBatteryClassic
     private IBattery battery;
 
     @Inject
+    @QualifierPropellers4
     private Propellers propellers;
 
     @Inject
@@ -55,7 +61,7 @@ public class Drone {
 
         propellers.start();
 
-        battery.use(consumptionCalculator.getConsumption(50d,Direction.VERTICAL,weight));
+        battery.use(consumptionCalculator.getConsumption(50d, Direction.VERTICAL,weight));
 
         current = new Point(current.getLatitude(),current.getLongitude(),50d);
 

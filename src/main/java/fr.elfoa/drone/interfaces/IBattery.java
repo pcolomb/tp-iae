@@ -1,4 +1,6 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.interfaces;
+
+import fr.elfoa.drone.impl.Module;
 
 import javax.inject.Inject;
 import java.util.ArrayList;

@@ -1,6 +1,8 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.impl;
 
-import javax.inject.Inject;
+import fr.elfoa.drone.annotations.QualifierBatteryClassic;
+import fr.elfoa.drone.interfaces.IBattery;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,12 +11,12 @@ import java.util.List;
 /**
  * @author Pierre Colomb
  */
-public class Battery implements IBattery{
+@QualifierBatteryClassic
+public class Battery implements IBattery {
 
-    @Inject
+
     private List<Module> modules = new ArrayList<>();
 
-    @Inject
     public Battery(){
         modules = Arrays.asList(new Module(),
                                 new Module(),

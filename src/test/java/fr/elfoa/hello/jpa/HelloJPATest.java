@@ -17,7 +17,7 @@ import javax.persistence.Persistence;
  * @author Pierre Colomb
  */
 public class HelloJPATest {
-
+    //décommenter la BDD dans persistence.xml
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello-database");
     private EntityManager em;
     private EntityTransaction tx;

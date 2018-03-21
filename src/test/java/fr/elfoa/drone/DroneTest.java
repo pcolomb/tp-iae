@@ -1,12 +1,21 @@
 package fr.elfoa.drone;
 
 import static org.junit.Assert.assertEquals;
+
+import fr.elfoa.AbstractBootstraper;
+import fr.elfoa.drone.impl.Container;
+import fr.elfoa.drone.impl.Drone;
+import fr.elfoa.drone.impl.Item;
+import fr.elfoa.drone.impl.Point;
+import org.jglue.cdiunit.CdiRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 /**
  * @author Pierre Colomb
  */
-public class DroneTest {
+@RunWith(CdiRunner.class)
+public class DroneTest extends AbstractBootstraper{
 
     private static final Point ORIGIN = new Point(0d,0d,0d);
 

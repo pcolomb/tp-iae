@@ -1,4 +1,4 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.annotations;
 
 import javax.inject.Inject;
 import javax.inject.Qualifier;
@@ -11,7 +11,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;;
 @Qualifier
 @Retention(RUNTIME)
 @Target({ TYPE, METHOD, FIELD, PARAMETER })
-public @interface Propellers6{
-
-    Integer number = 6;
+public @interface QualifierPropellers6 {
 }

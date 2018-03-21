@@ -1,4 +1,4 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.impl;
 
 /**
  * @author Pierre Colomb
