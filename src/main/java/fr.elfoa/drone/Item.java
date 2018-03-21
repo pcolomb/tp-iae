@@ -9,7 +9,10 @@ public class Item {
 
     private Integer weight;
 
-
+    public Item(Integer size, Integer weight) {
+        this.size = size;
+        this.weight = weight;
+    }
 
     public Integer getSize() {
         return size;
