@@ -1,5 +1,7 @@
 package fr.elfoa.drone;
 
+import javax.inject.Inject;
+
 /**
  * @author Pierre Colomb
  */
@@ -11,7 +13,12 @@ public class Point {
 
     private Double altitude;
 
-
+    @Inject
+    public Point() {
+        this.latitude = 0.0d;
+        this.longitude = 0.0d;
+        this.altitude = 0.0d;
+    }
 
     public Point(Double latitude, Double longitude, Double altitude) {
         this.latitude = latitude;
@@ -59,5 +66,20 @@ public class Point {
         distance = Math.pow(distance, 2) + Math.pow(height, 2);
 
         return Math.sqrt(distance);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Point)) {
+            return false;
+        }
+
+        Point p = (Point)o;
+        return (this.latitude.equals(p.latitude) &&
+                this.longitude.equals(p.longitude) &&
+                this.altitude.equals(p.altitude));
     }
 }
