@@ -1,5 +1,8 @@
 package fr.elfoa.drone;
 
+import fr.elfoa.qualifiers.Battery_Standard;
+
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,29 +11,35 @@ import java.util.List;
 /**
  * @author Pierre Colomb
  */
-public class Battery {
+@Battery_Standard
+public class Battery implements IBattery {
 
-    private List<Module> modules = new ArrayList<>();
+    protected List<Module> modules = new ArrayList<>();
 
-
-    public Battery(){
+    @Inject
+    public Battery() {
         modules = Arrays.asList(new Module(),
                                 new Module(),
                                 new Module(),
                                 new Module());
     }
 
-    void use(Integer power){
+    @Override
+    public void use(Integer power){
         Module module = modules.stream()
                                .filter(m -> m.getPower() != 0)
                                .findFirst()
                                .orElseThrow(UnsupportedOperationException::new);
-
-        module.use(power);
+        try {
+            module.use(power);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
-    Integer getPower(){
+    @Override
+    public Integer getPower(){
         return modules.stream()
                       .mapToInt(Module::getPower)
                       .sum();

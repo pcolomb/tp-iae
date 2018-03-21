@@ -1,5 +1,10 @@
 package fr.elfoa.drone;
 
+import fr.elfoa.qualifiers.Battery_Lithium_Ion;
+import fr.elfoa.qualifiers.Battery_Standard;
+import fr.elfoa.qualifiers.Propellers_Standard;
+
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,30 +14,35 @@ import java.util.List;
  */
 public class Drone {
 
-    private Battery battery;
+    @Inject
+    @Battery_Standard
+    private Battery battery; //Baterie standart injectée
 
+    @Inject
+    @Propellers_Standard
     private Propellers propellers;
 
-    private List<Container> containers;
+    private List<Container> containers = new ArrayList<Container>();
 
-    private ConsumptionCalculator consumptionCalculator = new ConsumptionCalculator();
+    @Inject
+    private ConsumptionCalculator consumptionCalculator;
 
+    @Inject
     private Point current;
 
     private Boolean isFlying;
 
-
-    public Drone(Point current){
-        this.containers = new ArrayList<>();
-        this.current = current;
-        this.battery = new Battery();
-        this.propellers = new Propellers(battery);
-
-        if(current.getAltitude() != 0){
-            throw new IllegalArgumentException();
-        }
-
+    @Inject
+    public Drone() {
+        this.current = new Point(0.0,0.0,0.0);
+        this.isFlying = false;
     }
+
+    public Drone(Point pt) {
+        this.current = pt;
+        this.isFlying = this.current.getAltitude() > 0;
+    }
+
 
     public void tackOff(){
 
@@ -89,10 +99,18 @@ public class Drone {
                                    .mapToInt(Container::getWeight)
                                    .sum();
 
-        return weight == 0 || (weight / propellers.getNumberOfPropelle() * 5) != 0;
+        return weight == 0 || (weight / propellers.getNumberOfPropeller() * 5) != 0;
     }
 
     public Point getCurrentPosition(){
         return current;
+    }
+
+    public Battery getBattery() {
+        return battery;
+    }
+
+    public Propellers getPropellers() {
+        return propellers;
     }
 }

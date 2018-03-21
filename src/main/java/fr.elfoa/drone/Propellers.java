@@ -1,33 +1,43 @@
 package fr.elfoa.drone;
 
+import fr.elfoa.qualifiers.Battery_Standard;
+import fr.elfoa.qualifiers.Propellers_Standard;
+
+import javax.inject.Inject;
+
 /**
  * @author Pierre Colomb
  */
-public class Propellers {
+@Propellers_Standard
+public class Propellers implements IPropellers {
 
     private Integer number = 4;
 
+    @Inject
+    @Battery_Standard
     private Battery battery;
 
-    private ConsumptionCalculator calculator = new ConsumptionCalculator();
+    @Inject
+    private ConsumptionCalculator calculator ;
 
     private Boolean isRunning = false;
 
-    public Propellers(Battery battery){
-        this.battery = battery;
-    }
+    @Inject
+    public Propellers() {}
 
+    @Override
     public void start(){
         battery.use(calculator.getConsumption(number));
         isRunning = true;
     }
 
+    @Override
     public void stop(){
         isRunning = false;
     }
 
 
-    public Integer getNumberOfPropelle() {
+    public Integer getNumberOfPropeller() {
         return number;
     }
 
@@ -35,5 +45,9 @@ public class Propellers {
 
     public Boolean getRunning() {
         return isRunning;
+    }
+
+    public void setBattery(Battery battery) {
+        this.battery = battery;
     }
 }
