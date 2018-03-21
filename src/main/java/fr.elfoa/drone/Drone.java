@@ -1,5 +1,13 @@
 package fr.elfoa.drone;
 
+import fr.elfoa.drone.battery.A_Battery;
+import fr.elfoa.drone.battery.Battery;
+import fr.elfoa.drone.battery.IBattery;
+import fr.elfoa.drone.propellers.A_Prop;
+import fr.elfoa.drone.propellers.IPropellers;
+import fr.elfoa.drone.propellers.Propellers;
+
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,30 +17,54 @@ import java.util.List;
  */
 public class Drone {
 
-    private Battery battery;
+    @Inject
+    @A_Battery
+    private IBattery battery;
 
-    private Propellers propellers;
+    @Inject
+    @A_Prop
+    private IPropellers propellers;
 
     private List<Container> containers;
 
-    private ConsumptionCalculator consumptionCalculator = new ConsumptionCalculator();
+    @Inject
+    private ConsumptionCalculator consumptionCalculator;
 
+    @Inject
     private Point current;
 
     private Boolean isFlying;
 
 
+    @Inject
+    public Drone(){
+        containers = new ArrayList<>();
+        this.isFlying = false;
+    }
+
     public Drone(Point current){
-        this.containers = new ArrayList<>();
         this.current = current;
+        this.containers = new ArrayList<>();
+        this.isFlying = false;
         this.battery = new Battery();
         this.propellers = new Propellers(battery);
 
         if(current.getAltitude() != 0){
             throw new IllegalArgumentException();
         }
-
     }
+
+  /*  public Drone(Point current, IBattery battery){
+        this.current = current;
+        this.containers = new ArrayList<>();
+        this.isFlying = false;
+        this.battery = battery;
+        this.propellers = new Propellers(battery);
+
+        if(current.getAltitude() != 0){
+            throw new IllegalArgumentException();
+        }
+    }*/
 
     public void tackOff(){
 

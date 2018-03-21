@@ -1,5 +1,6 @@
-package fr.elfoa.drone;
+package fr.elfoa.drone.battery;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,11 +9,12 @@ import java.util.List;
 /**
  * @author Pierre Colomb
  */
-public class Battery {
+@A_Battery
+public class Battery implements IBattery {
 
     private List<Module> modules = new ArrayList<>();
 
-
+    @Inject
     public Battery(){
         modules = Arrays.asList(new Module(),
                                 new Module(),
@@ -20,7 +22,8 @@ public class Battery {
                                 new Module());
     }
 
-    void use(Integer power){
+    @Override
+    public void use(Integer power){
         Module module = modules.stream()
                                .filter(m -> m.getPower() != 0)
                                .findFirst()
@@ -30,7 +33,8 @@ public class Battery {
 
     }
 
-    Integer getPower(){
+    @Override
+    public Integer getPower(){
         return modules.stream()
                       .mapToInt(Module::getPower)
                       .sum();
