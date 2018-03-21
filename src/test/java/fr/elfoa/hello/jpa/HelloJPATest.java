@@ -2,6 +2,8 @@ package fr.elfoa.hello.jpa;
 
 
 
+import fr.elfoa.tp2.School;
+import fr.elfoa.tp2.Student;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,6 +17,7 @@ import javax.persistence.Persistence;
 
 /**
  * @author Pierre Colomb
+ * Tests pour le TP2
  */
 public class HelloJPATest {
 
@@ -37,6 +40,28 @@ public class HelloJPATest {
        }
     }
 
+    @Test
+    public void persist() {
+        School school = new School("ISIMA");
+        tx.begin();
+        em.persist(school);
+        tx.commit();
+
+        Assert.assertEquals(1, school.getId().intValue());
+    }
+
+    @Test
+    public void cascadePersist() {
+        Student student = new Student("Bertrand l'éléphant", 21);
+        student.setSchool(new School("ISIMA"));
+        tx.begin();
+        em.persist(student);
+        tx.commit();
+
+        Assert.assertEquals(2, student.getId().intValue());
+        Assert.assertEquals(3, student.getSchool().getId().intValue());
+    }
+/*
     @Test
     public void test(){
 
@@ -132,5 +157,5 @@ public class HelloJPATest {
 
 
     }
-
+*/
 }
