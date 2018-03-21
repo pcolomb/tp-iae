@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 
@@ -83,6 +84,29 @@ public class CrmJPATest
         displayDataFromItem();
     }
 
+    @Test
+    public void testPersistCommande()
+    {
+        Client client = new Client("Nom 1", "Prenom 1", "nom1.prenom1@mail.fr", "0786000000");
+        Adresse adresse1 = new Adresse("63000", 12, "France", "Gergovia", "Boulevard");
+        client.addAdresse(adresse1);
+
+        Commande commande = new Commande(client, adresse1, new Date(1998, 11, 8));
+        Item item1 = new Item("PS4", 30, 2);
+        Item item2 = new Item("Switch", 20, 2);
+
+        commande.addItem(item1);
+        commande.addItem(item2);
+
+        tx.begin();
+        em.persist(commande);
+        tx.commit();
+
+        Assert.assertEquals(1,commande.getId().intValue());
+
+        displayDataFromCommande();
+    }
+
     private Integer displayDataFromClient()
     {
         Query q = em.createQuery("select client from Client client");
@@ -111,6 +135,17 @@ public class CrmJPATest
         List<Item> results = q.getResultList();
         for (Item item : results) {
             System.out.println(item.toString());
+        }
+        System.out.println("Size: " + results.size());
+        return results.size();
+    }
+
+    private Integer displayDataFromCommande()
+    {
+        Query q = em.createQuery("select commande from Commande commande");
+        List<Commande> results = q.getResultList();
+        for (Commande commande : results) {
+            System.out.println(commande.toString());
         }
         System.out.println("Size: " + results.size());
         return results.size();

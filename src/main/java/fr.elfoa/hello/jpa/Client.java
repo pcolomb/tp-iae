@@ -22,12 +22,16 @@ public class Client
     @OneToMany(cascade=CascadeType.ALL)
     private List<Adresse> adresses;
 
+    @OneToMany(cascade=CascadeType.ALL)
+    private List<Commande> commandes;
+
     // ============================================
     // CONSTRUCTORS
 
     public Client()
     {
         adresses = new ArrayList<Adresse>();
+        commandes = new ArrayList<Commande>();
     }
 
     public Client(String nom, String prenom, String mail, String telephone)
@@ -37,6 +41,8 @@ public class Client
         this.mail = mail;
         this.telephone = telephone;
         adresses = new ArrayList<Adresse>();
+
+        commandes = new ArrayList<>();
     }
 
     // ============================================
@@ -78,6 +84,8 @@ public class Client
     public List<Adresse> getAdresses(){ return adresses; }
     public void addAdresse(Adresse adresse) { adresses.add(adresse); }
 
+    public List<Commande> getCommandes(){ return commandes; }
+    public void addCommande(Commande commande) { commandes.add(commande); }
 
     // ============================================
     // PUBLIC METHODS
@@ -106,6 +114,21 @@ public class Client
                 sb.append("<====\n");
             }
 
+        }
+
+        if(commandes.size() == 0)
+        {
+            sb.append("Pas de commande\n");
+        }
+        else
+        {
+            sb.append("Commandes :\n");
+            for(Commande commande : commandes)
+            {
+                sb.append("====>\n");
+                sb.append(commande.toString());
+                sb.append("<====\n");
+            }
         }
         return sb.toString();
     }
