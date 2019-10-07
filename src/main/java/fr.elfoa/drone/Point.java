@@ -5,13 +5,16 @@ package fr.elfoa.drone;
  */
 public class Point {
 
-    private Double latitude;
+    private Double latitude = 0d;
 
-    private Double longitude;
+    private Double longitude = 0d;
 
-    private Double altitude;
+    private Double altitude = 0d;
 
 
+    public Point(){
+
+    }
 
     public Point(Double latitude, Double longitude, Double altitude) {
         this.latitude = latitude;

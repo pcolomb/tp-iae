@@ -27,6 +27,14 @@ public class BatteryTest {
 
     }
 
+    @Test
+    public void testConsumAll(){
+        Battery battery = new Battery();
+
+        battery.use(400);
+
+        assertEquals(0d,battery.getPower(),0);
+    }
 
 
     @Test

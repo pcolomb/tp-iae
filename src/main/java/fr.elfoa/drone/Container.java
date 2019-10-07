@@ -14,6 +14,15 @@ public class Container {
 
 
     public void load (Item item){
+
+        if(item == null){
+            return;
+        }
+
+        if(isFull(item.getSize())){
+            throw new IllegalArgumentException();
+        }
+
         items.add(item);
     }
 
@@ -23,5 +32,14 @@ public class Container {
                     .sum();
     }
 
+    private boolean isFull(int newItemWeigth){
+        Integer sum = items.stream()
+                           .mapToInt(Item::getSize)
+                           .sum();
+
+        return sum + newItemWeigth >= SIZE;
+
+
+    }
 
 }

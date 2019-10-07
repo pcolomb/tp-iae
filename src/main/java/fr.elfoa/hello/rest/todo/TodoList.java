@@ -8,7 +8,7 @@ import java.util.*;
 public class TodoList {
 
 
-    private final Map<Integer,Todo> todos = new HashMap<>();
+    private Map<Integer,Todo> todos = new HashMap<>();
 
     public TodoList add(Todo todo){
 

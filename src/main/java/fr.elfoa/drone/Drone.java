@@ -1,5 +1,6 @@
 package fr.elfoa.drone;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Drone {
 
     private Boolean isFlying;
 
-
+    @Inject
     public Drone(Point current){
         this.containers = new ArrayList<>();
         this.current = current;

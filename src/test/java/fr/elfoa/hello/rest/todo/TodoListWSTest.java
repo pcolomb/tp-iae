@@ -20,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 public class TodoListWSTest extends JerseyTest{
 
     @Override
+    
     protected Application configure() {
         return new ResourceConfig(TodoListWS.class);
     }
@@ -30,7 +31,6 @@ public class TodoListWSTest extends JerseyTest{
         String string = target("todo").request().get(String.class);
 
         assertEquals("[{\"name\":\"foo\",\"dueDate\":null,\"done\":false},{\"name\":\"bar\",\"dueDate\":null,\"done\":false},{\"name\":\"wiz\",\"dueDate\":null,\"done\":false}]", string);
-
         Todo[] todos = target("todo").request().get(Todo[].class);
 
         Todo[] expected = new Todo[]{new Todo("foo"),new Todo("bar"),new Todo("wiz")};
