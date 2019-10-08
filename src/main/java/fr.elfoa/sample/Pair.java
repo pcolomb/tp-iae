@@ -5,8 +5,8 @@ package fr.elfoa.sample;
  */
 public class Pair {
 
-    int x;
-    int y;
+    private final int x;
+    private final int y;
 
 
     public Pair(int x, int y){
@@ -43,7 +43,6 @@ public class Pair {
 
 
     public int hashCode() {
-
         return java.util.Objects.hash(x, y);
     }
 
