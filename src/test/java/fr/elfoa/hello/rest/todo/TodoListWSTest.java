@@ -20,7 +20,6 @@ import static org.junit.Assert.assertEquals;
 public class TodoListWSTest extends JerseyTest{
 
     @Override
-    
     protected Application configure() {
         return new ResourceConfig(TodoListWS.class);
     }

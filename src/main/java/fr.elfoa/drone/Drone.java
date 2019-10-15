@@ -22,7 +22,6 @@ public class Drone {
 
     private Boolean isFlying;
 
-    @Inject
     public Drone(Point current){
         this.containers = new ArrayList<>();
         this.current = current;
@@ -47,9 +46,9 @@ public class Drone {
 
         propellers.start();
 
-        battery.use(consumptionCalculator.getConsumption(50d,Direction.VERTICAL,weight));
+        battery.use(consumptionCalculator.getConsumption(10d,Direction.VERTICAL,weight));
 
-        current = new Point(current.getLatitude(),current.getLongitude(),50d);
+        current = new Point(current.getLatitude(),current.getLongitude(),10d);
 
         isFlying = true;
 
@@ -78,7 +77,7 @@ public class Drone {
                                    .mapToInt(Container::getWeight)
                                    .sum();
 
-        battery.use(consumptionCalculator.getConsumption(50d,Direction.VERTICAL,weight));
+        battery.use(consumptionCalculator.getConsumption(10d,Direction.VERTICAL,weight));
 
         current = new Point(current.getLatitude(),current.getLongitude(),0d);
 
@@ -90,7 +89,7 @@ public class Drone {
                                    .mapToInt(Container::getWeight)
                                    .sum();
 
-        return weight == 0 || (weight / propellers.getNumberOfPropelle() * 5) != 0;
+        return weight / (propellers.getNumberOfPropelle() * 2)  == 0;
     }
 
     public Point getCurrentPosition(){

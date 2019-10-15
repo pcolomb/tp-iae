@@ -1,19 +1,11 @@
 package fr.elfoa.drone;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.util.Objects;
 
 /**
  * @author Pierre Colomb
  */
-@Entity
 public class Item {
-
-    @Id
-    @GeneratedValue
-    private Integer id;
 
     private String label;
 
@@ -74,8 +66,7 @@ public class Item {
         if (!(o instanceof Item))
             return false;
         Item item = (Item) o;
-        return Objects.equals(id, item.id) &&
-               Objects.equals(label, item.label) &&
+        return Objects.equals(label, item.label) &&
                Objects.equals(size, item.size) &&
                Objects.equals(weight, item.weight);
     }
@@ -84,6 +75,6 @@ public class Item {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, label, size, weight);
+        return Objects.hash(label, size, weight);
     }
 }
