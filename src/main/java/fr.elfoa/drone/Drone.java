@@ -82,6 +82,8 @@ public class Drone {
         current = new Point(current.getLatitude(),current.getLongitude(),0d);
 
         propellers.stop();
+
+        isFlying = false;
     }
 
     public boolean isCanFly(){
