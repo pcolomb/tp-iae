@@ -26,7 +26,7 @@ public class DroneTest extends AbstractBootstraper{
 
         drone.tackOff();
 
-        assertEquals(50d,drone.getCurrentPosition().getAltitude(),0);
+        assertEquals(10d,drone.getCurrentPosition().getAltitude(),0);
 
 
 
