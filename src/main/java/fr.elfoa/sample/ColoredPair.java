@@ -12,7 +12,7 @@ public class ColoredPair extends Pair {
         this.c = c;
     }
 
-    private ColoredPair(int x,int y,Color c){
+    public ColoredPair(int x,int y,Color c){
         super(x,y);
         this.c = c;
     }
