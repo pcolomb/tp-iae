@@ -11,7 +11,7 @@
 
     <properties>
         <eclipselink>2.6.2</eclipselink>
-        <derby>10.10.1.1</derby>
+        <derby>10.14.2.0</derby>
         <jersey.version>2.26</jersey.version>
         <encoding>UTF-8</encoding>
     </properties>
